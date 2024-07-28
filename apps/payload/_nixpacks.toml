@@ -1,0 +1,27 @@
+[variables]
+CI = 'true'
+NIXPACKS_METADATA = 'node'
+NIXPACKS_NODE_VERSION = '20.9.0'
+NODE_ENV = 'production'
+NPM_CONFIG_PRODUCTION = 'false'
+[phases.build]
+dependsOn = ['install']
+cmds = ['npm run build']
+cacheDirectories = ['node_modules/.cache']
+
+[phases.install]
+dependsOn = ['setup']
+cmds = [
+'npm install -g corepack && corepack enable && corepack prepare pnpm@9.5.0 --activate',
+'pnpm install']
+cacheDirectories = ['/root/.npm']
+paths = ['/app/node_modules/.bin']
+
+[phases.setup]
+nixPkgs = [
+'nodejs_20',
+'pnpm-9_x',
+]
+
+[start]
+cmd = 'npm run start'
