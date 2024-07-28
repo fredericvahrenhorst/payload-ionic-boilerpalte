@@ -1,10 +1,6 @@
 # Ionic + Payload monorepo boilerplate
 
-A monorepo boilerplate using Ionic and Payload.
-
-## Why?
-
-I was interested in using Payload as the CMS for a app with Ionic as monorepo
+A monorepo boilerplate using Ionic (Vue) and Payload.
 
 ## Tech stack
 
